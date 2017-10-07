@@ -1,99 +1,53 @@
 import request from 'superagent'
 
-export function getPosts () {
-  return request.get('/v1/posts')
+export function getPlayers () {
+  return request.get('/players')
     .then(data => {
-      const posts = data.body
-      return posts.map(post => {
+      const players = data.body
+      return players.map(player => {
+        console.log(player);
         return Object.assign(
           {},
-          post,
-          { paragraphs: JSON.parse(post.paragraphs) }
+          player
         )
       })
     })
     .catch(err => {
-      throw Error('Cannot GET Posts!')
+      throw Error('Cannot GET Players!')
     })
 }
 
-export function addPost (post) {
-  return request.post('/v1/posts')
-    .send(post)
+export function addPlayer (player) {
+  return request.player('/players')
+    .send(player)
     .then(data => {
-      const returnedPost = data.body
-      return returnedPost
+      const returnedPlayer = data.body
+      return returnedPlayer
     })
     .catch(err => {
-      throw Error('Cannot POST a new Post!')
+      throw Error('Cannot POST a new Player!')
     })
 }
 
-export function updatePost (post) {
-  return request.put(`/v1/posts/${post.id}`)
-    .send(post)
+export function updatePlayer (player) {
+  return request.put(`/players/${player.id}`)
+    .send(player)
     .then(data => {
-      const returnedPost = data.body
-      return returnedPost
+      const returnedPlayer = data.body
+      return returnedPlayer
     })
     .catch(err => {
-      throw Error('Cannot PUT a Post!')
+      throw Error('Cannot PUT a Player!')
     })
 }
 
-export function deletePost (postId) {
-  return request.del(`/v1/posts/${postId}`)
+export function deletePlayer (playerId) {
+  return request.del(`/players/${playerId}`)
   .then(data => {
-    const returnedPost = data.body
-    return returnedPost
+    const returnedPlayer = data.body
+    return returnedPlayer
   })
   .catch(err => {
-    throw Error('Cannot DELETE a Post!')
-  })
-}
-
-export function getCommentsByPostId(postId) {
-  return request.get(`/v1/posts/${postId}/comments`)
-    .then(data => {
-      const returnedComments = data.body
-      return returnedComments
-    })
-    .catch(err => {
-      throw Error('Cannot GET Comments By Post Id!')
-    })
-}
-
-export function addCommentByPostId(postId, comment) {
-  return request.post(`/v1/posts/${postId}/comments`)
-    .send(comment)
-    .then(data => {
-      const returnedComment = data.body
-      return returnedComment
-    })
-    .catch(err => {
-      throw Error('Cannot POST Comment By Post Id!')
-    })
-}
-
-export function updateComment (comment) {
-  return request.put(`/v1/comments/${comment.id}`)
-    .send(comment)
-    .then(data => {
-      const returnedComment = data.body
-      return returnedComment
-    })
-    .catch(err => {
-      throw Error('Cannot PUT Comment!')
-    })
-}
-
-export function deleteComment (commentId) {
-  return request.del(`/v1/comments/${commentId}`)
-  .then(data => {
-    const returnedComment = data.body
-    return returnedComment
-  })
-  .catch(err => {
-    throw Error('Cannot DELETE Comment!')
+    throw Error('Cannot DELETE a Player!')
   })
 }

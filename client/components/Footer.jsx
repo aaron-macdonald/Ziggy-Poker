@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer (props) {
   const {copyright, author} = {
-    copyright: 1980,
-    author: 'E. B. White'
+    copyright: 2017,
+    author: 'A. D. Macdonald'
   }
   return (
     <div className='footer'>
@@ -14,4 +14,3 @@ function Footer (props) {
 }
 
 export default Footer
-

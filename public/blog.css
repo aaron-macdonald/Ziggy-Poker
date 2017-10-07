@@ -89,54 +89,54 @@ h3 {
     padding: 2em 1em 0;
 }
 
-.post {
+.player {
     padding-bottom: 2em;
 }
-.post-title {
+.player-title {
     font-size: 2em;
     color: #222;
     margin-bottom: 0.2em;
 }
-.post-avatar {
+.player-avatar {
     border-radius: 50px;
     float: right;
     margin-left: 1em;
 }
-.post-description {
+.player-description {
     font-family: Georgia, "Cambria", serif;
     color: #444;
     line-height: 1.8em;
 }
-.post-meta {
+.player-meta {
     color: #999;
     font-size: 90%;
     margin: 0;
 }
 
-.post-category {
+.player-category {
     margin: 0 0.1em;
     padding: 0.3em 1em;
     color: #fff;
     background: #999;
     font-size: 80%;
 }
-    .post-category-design {
+    .player-category-design {
         background: #5aba59;
     }
-    .post-category-pure {
+    .player-category-pure {
         background: #4d85d1;
     }
-    .post-category-yui {
+    .player-category-yui {
         background: #8156a7;
     }
-    .post-category-js {
+    .player-category-js {
         background: #df2d4f;
     }
 
-.post-images {
+.player-images {
     margin: 1em 0;
 }
-.post-image-meta {
+.player-image-meta {
     margin-top: -3.5em;
     margin-left: 1em;
     color: #fff;

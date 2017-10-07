@@ -2,71 +2,60 @@ import React from 'react'
 
 import {Route, Switch} from 'react-router-dom'
 
-import Posts from './Posts'
-import PostForm from './PostForm'
-import Post from './Post'
+import Players from './Players'
+import PlayerForm from './PlayerForm'
+import Player from './Player'
 
 class Routes extends React.Component {
   render () {
     return (
       <div>
         <Switch>
-          <Route 
-            exact 
-            path='/' 
-            render={(props) => 
-              <Posts 
-                posts={this.props.posts} 
-                fetchPosts={this.props.fetchPosts} 
-                {...props} 
-              />
-            } 
-          />
-          <Route 
-            path='/posts/new' 
-            render={(props) => 
-              <PostForm 
-                fetchPosts={this.props.fetchPosts} 
-                {...props} 
-              />
-            } 
-          />
-          <Route 
-            path='/posts/edit/:id' 
-            render={(props) => 
-              <PostForm 
-                fetchPosts={this.props.fetchPosts} 
-                post={this.props.posts.find((post) => 
-                  post.id === Number(props.match.params.id))
-                } 
-                {...props} 
-              />
-            } 
-          />
           <Route
-            path='/posts/:id'
+            exact
+            path='/'
             render={(props) =>
-              <Post 
-                fetchPosts={this.props.fetchPosts} 
-                post={this.props.posts.find((post) =>
-                  post.id === Number(props.match.params.id)
-                )}
+              <Players
+                players={this.props.players}
+                fetchPlayers={this.props.fetchPlayers}
                 {...props}
               />
             }
           />
           <Route
-            path='/posts/:postId/comments/:commentId'
+            path='/players/new'
             render={(props) =>
-              <Post 
-                post={this.props.posts.find((post) =>
-                  post.id === Number(props.match.params.id)
+              <PlayerForm
+                fetchPlayers={this.props.fetchPlayers}
+                {...props}
+              />
+            }
+          />
+          <Route
+            path='/players/edit/:id'
+            render={(props) =>
+              <PlayerForm
+                fetchPlayers={this.props.fetchPlayers}
+                players={this.props.players.find((player) =>
+                  player.id === Number(props.match.params.id))
+                }
+                {...props}
+              />
+            }
+          />
+          <Route
+            path='/players/:id'
+            render={(props) =>
+              <Player
+                fetchPlayers={this.props.fetchPlayers}
+                player={this.props.players.find((player) =>
+                  player.id === Number(props.match.params.id)
                 )}
                 {...props}
               />
             }
           />
-        </Switch> 
+        </Switch>
       </div>
     )
   }

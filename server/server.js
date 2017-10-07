@@ -1,12 +1,10 @@
 const express = require('express')
 
-const posts = require('./routes/posts')
-const comments = require('./routes/comments')
+const players = require('./routes/players')
 
 const server = express()
 server.use(express.static('public'))
 
-server.use('/v1/posts', posts)
-server.use('/v1/comments', comments)
+server.use('/players', players)
 
 module.exports = server

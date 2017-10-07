@@ -4,33 +4,34 @@ import Header from './Header'
 import Footer from './Footer'
 import AppRoutes from './AppRoutes'
 
-import { getPosts } from '../api'
+import { getPlayers } from '../api'
 
 class App extends React.Component {
-  
+
   constructor (props) {
     super(props)
     this.state = {
-      posts: [],
+      players: [],
       errorMessage: ''
     }
-    this.fetchPosts = this.fetchPosts.bind(this)
+    this.fetchPlayers = this.fetchPlayers.bind(this)
   }
-  
+
   componentWillMount () {
-    this.fetchPosts()
+    this.fetchPlayers()
   }
-  
-  fetchPosts () {
-    return getPosts()
-      .then(posts => {
-        this.setState({ posts: posts })
+
+  fetchPlayers () {
+    return getPlayers()
+      .then(players => {
+        console.log(`App: ${players}`)
+        this.setState({ players: players })
       })
       .catch(err => {
         this.setState({ errorMessage: err.message })
       })
   }
-    
+
   render () {
     return (
       <div id='layout' className='pure-g'>
@@ -39,8 +40,8 @@ class App extends React.Component {
         </div>
         <div className='content pure-u-1 pure-u-md-3-4'>
           <AppRoutes
-            posts={this.state.posts}
-            fetchPosts={this.fetchPosts}
+            players={this.state.players}
+            fetchplayers={this.fetchPlayers}
           />
           {this.state.errorMessage &&
             <h1>{this.state.errorMessage}</h1>
@@ -48,10 +49,9 @@ class App extends React.Component {
         </div>
         <Footer />
       </div>
-    )    
+    )
   }
 
 }
 
 module.exports = App
-
