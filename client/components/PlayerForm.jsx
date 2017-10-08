@@ -8,7 +8,11 @@ class PlayerForm extends React.Component {
     this.state = {
       errorMessage: null,
       firstName: '',
-      surName: ''
+      surName: '',
+      knickName: '',
+      favHand: '',
+      favHeadsUp: '',
+      leastFavHeadsUp: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -31,6 +35,7 @@ class PlayerForm extends React.Component {
     e.preventDefault()
     this.setState({ errorMessage: null })
     const {player} = this.props
+
     if (player) {
       updatePlayer(this.state)
         .then(() => this.props.fetchPlayers())
@@ -60,7 +65,7 @@ class PlayerForm extends React.Component {
         <fieldset>
 
           <div className=''>
-           <label htmlFor='firstName'>First Name</label>
+           <label htmlFor='firstName'>First name</label>
            <input
              type='text'
              name='firstName'
@@ -68,8 +73,9 @@ class PlayerForm extends React.Component {
              onChange={(e) => this.setState({ firstName: e.target.value })}
            />
           </div>
+
           <div className=''>
-           <label htmlFor='surName'>Last Name</label>
+           <label htmlFor='surName'>Last name</label>
            <input
              type='text'
              name='surName'
@@ -79,13 +85,54 @@ class PlayerForm extends React.Component {
           </div>
 
           <div className=''>
+           <label htmlFor='knickName'>Knick name</label>
+           <input
+             type='text'
+             name='knickName'
+             value={this.state.knickName}
+             onChange={(e) => this.setState({ knickName: e.target.value })}
+           />
+          </div>
+
+          <div className=''>
+           <label htmlFor='favHand'>Fav hand</label>
+           <input
+             type='text'
+             name='favHand'
+             value={this.state.favHand}
+             onChange={(e) => this.setState({ favHand: e.target.value })}
+           />
+          </div>
+
+          <div className=''>
+           <label htmlFor='favHeadsUp'>Fav heads up opponent</label>
+           <input
+             type='text'
+             name='favHeadsUp'
+             value={this.state.favHeadsUp}
+             onChange={(e) => this.setState({ favHeadsUp: e.target.value })}
+           />
+          </div>
+
+          <div className=''>
+           <label htmlFor='leastFavHeadsUp'>Least fav heads up opponen</label>
+           <input
+             type='text'
+             name='leastFavHeadsUp'
+             value={this.state.leastFavHeadsUp}
+             onChange={(e) => this.setState({ leastFavHeadsUp: e.target.value })}
+           />
+          </div>
+
+          <div className=''>
             <input className='' type='submit' />
           </div>
+
         </fieldset>
 
         {this.state.errorMessage &&
-          this.state.errorMessage
-        }
+          this.state.errorMessage}
+          
       </form>
     )
   }

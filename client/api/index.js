@@ -5,7 +5,6 @@ export function getPlayers () {
     .then(data => {
       const players = data.body
       return players.map(player => {
-        console.log(player);
         return Object.assign(
           {},
           player
@@ -18,10 +17,12 @@ export function getPlayers () {
 }
 
 export function addPlayer (player) {
+  console.log(player);
   return request.post('/v1/players')
     .send(player)
     .then(data => {
       const returnedPlayer = data.body
+      console.log(returnedPlayer);
       return returnedPlayer
     })
     .catch(err => {

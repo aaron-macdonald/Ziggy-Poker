@@ -12,4 +12,12 @@ router.get('/', (req, res) => {
       res.json(data)
     })
 })
+
+router.post('/', (req, res) => {
+  const {firstName, surName, knickName, favHand,  favHeadsUp, leastFavHeadsUp} = req.body
+  const player = {firstName, surName, knickName, favHand,  favHeadsUp, leastFavHeadsUp}
+  db.addPlayer(player)
+    .then(addedPlayer => res.json(addedPlayer))
+})
+
 module.exports = router

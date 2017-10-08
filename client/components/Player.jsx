@@ -19,14 +19,14 @@ class Player extends React.Component {
       .catch(err => this.setState({ errorMessage: err.message }))
   }
   render () {
-    const {id, firstName, surName, knickName, favHand, favHeadsUp, leastFavHeadsup} = this.props.player
+    const {id, firstName, surName, knickName, favHand, favHeadsUp, leastFavHeadsUp} = this.props.player
     return (
         <tr className='player'>
            <td>{firstName} {surName}</td>
            <td>{knickName}</td>
            <td>{favHand}</td>
            <td>{favHeadsUp}</td>
-           <td>{leastFavHeadsup}</td>
+           <td>{leastFavHeadsUp}</td>
            <td>
               <Link to={`/players/edit/${id}`}>
                 <button>Edit</button>
@@ -43,7 +43,7 @@ Player.defaultProps = {
     knickName: '',
     favHand: '',
     favHeadsUp: '',
-    leastFavHeadsup: ''
+    leastFavHeadsUp: ''
   }
 }
 export default Player
