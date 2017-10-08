@@ -17,12 +17,10 @@ export function getPlayers () {
 }
 
 export function addPlayer (player) {
-  console.log(player);
   return request.post('/v1/players')
     .send(player)
     .then(data => {
       const returnedPlayer = data.body
-      console.log(returnedPlayer);
       return returnedPlayer
     })
     .catch(err => {
