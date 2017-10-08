@@ -22,21 +22,22 @@ class Player extends React.Component {
   }
 
   render () {
-    const {title, dateCreated, id} = this.props.player
+    const {firstName, surName, id} = this.props.player
     return (
       <div className='player'>
         <Link to={`/players/${id}`}>
-          <header className='player-header'>
-            <h2 className='player-title'>{firstName}</h2>
-            <h2 className='player-title'>{lastName}</h2>
+          <header className=''>
+            <h2 className=''>{firstName}</h2>
+            <h2 className=''>{surName}</h2>
           </header>
         </Link>
 
-        <div className='pure-button-group' role='group'>
+        <div className='' role=''>
+
           <Link to={`/players/edit/${id}`}>
-            <button className='button-secondary pure-button'>Edit</button>
+            <button className=''>Edit</button>
           </Link>
-          <button className='button-error pure-button' onClick={this.deletePlayer}>Delete</button>
+          <button className='' onClick={this.deletePlayer}>Delete</button>
         </div>
 
         {this.state.errorMessage &&

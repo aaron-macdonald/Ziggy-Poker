@@ -49,17 +49,17 @@ class PlayerForm extends React.Component {
 
   render () {
     return (
-      <form className='pure-form pure-form-aligned' onSubmit={this.handleSubmit}>
+      <form className='playerForm' onSubmit={this.handleSubmit}>
         {this.props.player &&
-          <h2 className='player-title'>Edit Player</h2>
+          <h2 className=''>Edit Player</h2>
         }
         {!this.props.player &&
-          <h2 className='player-title'>Add a New Player</h2>
+          <h2 className=''>Add a New Player</h2>
         }
 
         <fieldset>
 
-          <div className='pure-control-group'>
+          <div className=''>
            <label htmlFor='firstName'>First Name</label>
            <input
              type='text'
@@ -68,7 +68,7 @@ class PlayerForm extends React.Component {
              onChange={(e) => this.setState({ firstName: e.target.value })}
            />
           </div>
-          <div className='pure-control-group'>
+          <div className=''>
            <label htmlFor='surName'>Last Name</label>
            <input
              type='text'
@@ -78,8 +78,8 @@ class PlayerForm extends React.Component {
            />
           </div>
 
-          <div className='pure-controls'>
-            <input className='pure-button' type='submit' />
+          <div className=''>
+            <input className='' type='submit' />
           </div>
         </fieldset>
 
