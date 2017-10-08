@@ -6,8 +6,6 @@ function getPlayers(){
   return knex('Players')
 }
 
-
-
 module.exports = {
   getPlayers,
 }

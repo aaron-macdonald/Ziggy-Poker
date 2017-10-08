@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 export function getPlayers () {
-  return request.get('/players')
+  return request.get('/v1/players')
     .then(data => {
       const players = data.body
       return players.map(player => {
@@ -18,7 +18,7 @@ export function getPlayers () {
 }
 
 export function addPlayer (player) {
-  return request.player('/players')
+  return request.post('/v1/players')
     .send(player)
     .then(data => {
       const returnedPlayer = data.body
@@ -30,7 +30,7 @@ export function addPlayer (player) {
 }
 
 export function updatePlayer (player) {
-  return request.put(`/players/${player.id}`)
+  return request.put(`/v1/players/${player.id}`)
     .send(player)
     .then(data => {
       const returnedPlayer = data.body
@@ -42,7 +42,7 @@ export function updatePlayer (player) {
 }
 
 export function deletePlayer (playerId) {
-  return request.del(`/players/${playerId}`)
+  return request.del(`/v1/players/${playerId}`)
   .then(data => {
     const returnedPlayer = data.body
     return returnedPlayer

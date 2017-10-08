@@ -9,8 +9,7 @@ router.use(bodyParser.json())
 router.get('/', (req, res) => {
   db.getPlayers()
     .then(data => {
-      res.data
+      res.json(data)
     })
 })
-
 module.exports = router
