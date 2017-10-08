@@ -1,20 +1,16 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
 
 function Header () {
   return (
-    <div className='header'>
-      <h1 className=''>Ziggy Poker</h1>
-      <nav className=''>
-        <ul className=''>
-          <li className=''>
-            <Link to='/' className=''>Home</Link>
-          </li>
-          <li className=''>
-            <Link to='/players/new' className=''>Add Player</Link>
-          </li>
-        </ul>
+    <div className="navbar-fixed">
+      <nav className="teal">
+        <div className="nav-wrapper">
+          <Link to="/" className="brand-logo">Ziggys Poker</Link>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li><Link to="/players">Players</Link></li>
+          </ul>
+        </div>
       </nav>
     </div>
   )

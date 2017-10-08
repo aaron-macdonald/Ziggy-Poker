@@ -27,11 +27,12 @@ class App extends React.Component {
   }
   render () {
     return (
-      <div id='' className=''>
-        <div className=''>
+      <div className="app">
+        <div className="header">
           <Header />
         </div>
-        <div className=''>
+
+        <div className="app-routes container">
           <AppRoutes
             players={this.state.players}
             fetchplayers={this.fetchPlayers}
@@ -40,7 +41,10 @@ class App extends React.Component {
             <h1>{this.state.errorMessage}</h1>
           }
         </div>
-        <Footer />
+
+        <div className="footer center">
+          <Footer />
+        </div>
       </div>
     )
   }
