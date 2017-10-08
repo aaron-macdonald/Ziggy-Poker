@@ -11,49 +11,39 @@ class Player extends React.Component {
     }
     this.deletePlayer = this.deletePlayer.bind(this)
   }
-
   componentDidMount () {
   }
-
   deletePlayer () {
     deletePlayer(this.props.player.id)
       .then(() => this.props.fetchPlayers())
       .catch(err => this.setState({ errorMessage: err.message }))
   }
-
   render () {
-    const {firstName, surName, id} = this.props.player
+    const {id, firstName, surName, knickName, favHand, favHeadsUp, leastFavHeadsup} = this.props.player
     return (
-      <div className='player'>
-        <Link to={`/players/${id}`}>
-          <header className=''>
-            <h2 className=''>{firstName}</h2>
-            <h2 className=''>{surName}</h2>
-          </header>
-        </Link>
-
-        <div className='' role=''>
-
-          <Link to={`/players/edit/${id}`}>
-            <button className=''>Edit</button>
-          </Link>
-          <button className='' onClick={this.deletePlayer}>Delete</button>
-        </div>
-
-        {this.state.errorMessage &&
-          this.state.errorMessage
-        }
-      </div>
-    )
+        <tr className='player'>
+           <td>{firstName} {surName}</td>
+           <td>{knickName}</td>
+           <td>{favHand}</td>
+           <td>{favHeadsUp}</td>
+           <td>{leastFavHeadsup}</td>
+           <td>
+              <Link to={`/players/edit/${id}`}>
+                <button>Edit</button>
+              </Link>
+          </td>
+        </tr>
+      )
   }
 }
-
 Player.defaultProps = {
   player: {
     firstName: '',
-    surName: ''
+    surName: '',
+    knickName: '',
+    favHand: '',
+    favHeadsUp: '',
+    leastFavHeadsup: ''
   }
 }
-
-
 export default Player

@@ -31,17 +31,18 @@ class App extends React.Component {
         <div className="header">
           <Header />
         </div>
-        <div className="app-routes">
+
+        <div className="app-routes container">
           <AppRoutes
             players={this.state.players}
             fetchplayers={this.fetchPlayers}
           />
-
           {this.state.errorMessage &&
             <h1>{this.state.errorMessage}</h1>
           }
         </div>
-        <div className="footer">
+
+        <div className="footer center">
           <Footer />
         </div>
       </div>

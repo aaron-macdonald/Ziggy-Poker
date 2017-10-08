@@ -2,6 +2,7 @@ import React from 'react'
 
 import {Route, Switch} from 'react-router-dom'
 
+import Home from './Home'
 import Players from './Players'
 import PlayerForm from './PlayerForm'
 import Player from './Player'
@@ -14,6 +15,12 @@ class Routes extends React.Component {
           <Route
             exact
             path='/'
+            render={(props) =>
+              <Home />}
+          />
+          <Route
+            exact
+            path='/players'
             render={(props) =>
               <Players
                 players={this.props.players}
