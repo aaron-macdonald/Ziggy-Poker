@@ -1,10 +1,13 @@
 import React from 'react'
+
 import Header from './Header'
 import Footer from './Footer'
 import AppRoutes from './AppRoutes'
+
 import { getPlayers } from '../api'
 
 class App extends React.Component {
+
   constructor (props) {
     super(props)
     this.state = {
@@ -31,17 +34,15 @@ class App extends React.Component {
         <div className="header">
           <Header />
         </div>
-
         <div className="app-routes container">
           <AppRoutes
             players={this.state.players}
-            fetchplayers={this.fetchPlayers}
+            fetchPlayers={this.fetchPlayers}
           />
           {this.state.errorMessage &&
             <h1>{this.state.errorMessage}</h1>
           }
         </div>
-
         <div className="footer center">
           <Footer />
         </div>

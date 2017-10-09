@@ -3,7 +3,6 @@ import { addPlayer, updatePlayer } from '../api'
 
 class PlayerForm extends React.Component {
 
-
   constructor (props) {
     super(props)
     this.state = {
@@ -40,8 +39,10 @@ class PlayerForm extends React.Component {
         .catch(err => this.setState({ errorMessage: err.message }))
     } else {
       addPlayer(this.state)
-        .then((newPlayer) => this.props.fetchPlayers())
-        .then(() => this.props.history.push(`/players/${newPlayer.id}`))
+        .then((newPlayer) => {
+          this.props.fetchPlayers()
+        .then(() =>  this.props.history.push(`/players/${newPlayer.id}`))
+      })
         .catch(err => this.setState({ errorMessage: err.message }))
     }
   }

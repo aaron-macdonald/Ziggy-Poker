@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Player from './Player'
 
 function Players (props) {
-  console.log(props)
   return (
     <div className='players'>
       <div className='row valign-wrapper'>
@@ -19,7 +18,6 @@ function Players (props) {
             <th>Favorite hand</th>
             <th>Fav heads up opp</th>
             <th>Least fav heads up opp</th>
-          <th></th>
         </tr>
       </thead>
         <tbody>
