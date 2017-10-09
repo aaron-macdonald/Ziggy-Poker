@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Player from './Player'
 
 function Players (props) {
+  console.log(props)
   return (
     <div className='players'>
       <div className='row valign-wrapper'>

@@ -8,7 +8,7 @@ function getPlayers(){
 
 function addPlayer (player) {
   return knex('players').insert(player)
-    .then((result) => knex('players').where({ id: result[0]}))
+    .then((result) => knex('players').where({ id: result[0] }))
 }
 
 module.exports = {
