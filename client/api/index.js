@@ -5,7 +5,6 @@ export function getPlayers () {
     .then(data => {
       const players = data.body
       return players.map(player => {
-        console.log(player);
         return Object.assign(
           {},
           player

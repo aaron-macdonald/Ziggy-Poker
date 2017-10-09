@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('knickName')
     table.string('favHand')
     table.string('favHeadsUp')
-    table.string('leastFavHeadsup')
+    table.string('leastFavHeadsUp')
   })
 }
 

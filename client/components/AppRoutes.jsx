@@ -12,12 +12,14 @@ class Routes extends React.Component {
     return (
       <div>
         <Switch>
+
           <Route
             exact
             path='/'
             render={(props) =>
               <Home />}
           />
+
           <Route
             exact
             path='/players'
@@ -62,6 +64,7 @@ class Routes extends React.Component {
               />
             }
           />
+
         </Switch>
       </div>
     )

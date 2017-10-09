@@ -8,25 +8,26 @@ class PlayerForm extends React.Component {
     this.state = {
       errorMessage: null,
       firstName: '',
-      surName: ''
+      surName: '',
+      knickName: '',
+      favHand: '',
+      favHeadsUp: '',
+      leastFavHeadsUp: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
   componentWillMount () {
     const {player} = this.props
     if (player) {
       this.setState(Object.assign({}, player)
     )}
   }
-
   componentWillReceiveProps (nextProps) {
     const {player} = nextProps
     if (player && !this.props.player) {
       this.setState(Object.assign({}, player))
     }
   }
-
   handleSubmit (e) {
     e.preventDefault()
     this.setState({ errorMessage: null })
@@ -36,19 +37,18 @@ class PlayerForm extends React.Component {
         .then(() => this.props.fetchPlayers())
         .then(() => this.props.history.push(`/players/${player.id}`))
         .catch(err => this.setState({ errorMessage: err.message }))
-
     } else {
       addPlayer(this.state)
         .then((newPlayer) => {
           this.props.fetchPlayers()
-          .then(() => this.props.history.push(`/players/${newPlayer.id}`))
-        })
+        .then(() =>  this.props.history.push(`/players/${newPlayer.id}`))
+      })
         .catch(err => this.setState({ errorMessage: err.message }))
     }
   }
-
   render () {
     return (
+
       <form className='playerForm' onSubmit={this.handleSubmit}>
         {this.props.player &&
           <h2 className=''>Edit Player</h2>
@@ -58,9 +58,8 @@ class PlayerForm extends React.Component {
         }
 
         <fieldset>
-
           <div className=''>
-           <label htmlFor='firstName'>First Name</label>
+           <label htmlFor='firstName'>First name</label>
            <input
              type='text'
              name='firstName'
@@ -69,7 +68,7 @@ class PlayerForm extends React.Component {
            />
           </div>
           <div className=''>
-           <label htmlFor='surName'>Last Name</label>
+           <label htmlFor='surName'>Last name</label>
            <input
              type='text'
              name='surName'
@@ -77,15 +76,50 @@ class PlayerForm extends React.Component {
              onChange={(e) => this.setState({ surName: e.target.value })}
            />
           </div>
-
+          <div className=''>
+           <label htmlFor='knickName'>Knick name</label>
+           <input
+             type='text'
+             name='knickName'
+             value={this.state.knickName}
+             onChange={(e) => this.setState({ knickName: e.target.value })}
+           />
+          </div>
+          <div className=''>
+           <label htmlFor='favHand'>Fav hand</label>
+           <input
+             type='text'
+             name='favHand'
+             value={this.state.favHand}
+             onChange={(e) => this.setState({ favHand: e.target.value })}
+           />
+          </div>
+          <div className=''>
+           <label htmlFor='favHeadsUp'>Fav heads up opponent</label>
+           <input
+             type='text'
+             name='favHeadsUp'
+             value={this.state.favHeadsUp}
+             onChange={(e) => this.setState({ favHeadsUp: e.target.value })}
+           />
+          </div>
+          <div className=''>
+           <label htmlFor='leastFavHeadsUp'>Least fav heads up opponen</label>
+           <input
+             type='text'
+             name='leastFavHeadsUp'
+             value={this.state.leastFavHeadsUp}
+             onChange={(e) => this.setState({ leastFavHeadsUp: e.target.value })}
+           />
+          </div>
           <div className=''>
             <input className='' type='submit' />
           </div>
         </fieldset>
 
         {this.state.errorMessage &&
-          this.state.errorMessage
-        }
+          this.state.errorMessage}
+
       </form>
     )
   }
