@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Player from './Player'
 
 function Players (props) {
   const players = props.players
@@ -25,7 +24,7 @@ function Players (props) {
                 <td>{firstName} {surName}</td>
                 <td><img src={image} alt="" height="100" width="100"></img></td>
                 <td>
-                  <Link to={`/players/view/${id}`}>
+                  <Link to={`/player/${id}`}>
                     <button>View</button>
                   </Link>
                 </td>

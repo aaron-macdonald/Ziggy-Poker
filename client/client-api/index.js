@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-export function getPlayers () {
+export function getPlayers (props) {
   return request.get('/api/v1')
     .then(data => {
       const players = data.body
