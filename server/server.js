@@ -5,6 +5,6 @@ const players = require('./routes/players')
 const server = express()
 server.use(express.static('public'))
 
-server.use('/v1/players', players)
+server.use('/api/v1', players)
 
 module.exports = server
