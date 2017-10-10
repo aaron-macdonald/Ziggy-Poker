@@ -1,12 +1,14 @@
 import React from 'react'
+import {Route, Switch} from 'react-router-dom'
 
+import Home from './Home'
 import Header from './Header'
 import Footer from './Footer'
-import AppRoutes from './AppRoutes'
+import Players from './Players/Players'
 
-import { getPlayers } from '../api'
+import { getPlayers } from '../client-api'
 
-class App extends React.Component {
+class Layout extends React.Component {
 
   constructor (props) {
     super(props)
@@ -35,10 +37,28 @@ class App extends React.Component {
           <Header />
         </div>
         <div className="app-routes container">
-          <AppRoutes
-            players={this.state.players}
-            fetchPlayers={this.fetchPlayers}
-          />
+
+          <Switch>
+
+            <Route
+              exact
+              path='/'
+              render={() =>
+                <Home />}
+            />
+            <Route
+               exact
+               path='/players'
+               render={(props) =>
+                 <Players
+                   players={this.props.players}
+                   fetchPlayers={this.props.fetchPlayers}
+                   {...props}
+                 />
+               }
+            />
+
+          </Switch>
           {this.state.errorMessage &&
             <h1>{this.state.errorMessage}</h1>
           }
@@ -51,4 +71,4 @@ class App extends React.Component {
   }
 
 }
-module.exports = App
+module.exports = Layout

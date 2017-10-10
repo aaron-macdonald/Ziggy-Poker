@@ -1,8 +1,8 @@
 {
-  "name": "charlottes-web-log",
+  "name": "Ziggys-Poker",
   "version": "0.1.0",
-  "description": "A spider's blog about her web",
-  "repository": "https://github.com/dev-academy-challenges/charlottes-web-log.git",
+  "description": "A site for Ziggs Poker",
+  "repository": "https://github.com/aaron-macdonald/Ziggy-Poker.git",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index & webpack --watch",
@@ -15,7 +15,7 @@
     ]
   },
   "keywords": [],
-  "author": "EDA",
+  "author": "Aaron Macdonald",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",

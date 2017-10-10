@@ -2,13 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter as Router } from 'react-router-dom'
 
-import App from './components/App'
+import Layout from './components/Layout'
 const placeToMount = document.getElementById('root')
 
 ReactDOM.render(
   <Router>
-    <App />
+    <Layout />
   </Router>,
   placeToMount
 )
-

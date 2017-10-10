@@ -13,12 +13,4 @@ router.get('/', (req, res) => {
 
 })
 
-router.post('/', (req, res) => {
-  let {firstName, surName, knickName, favHand,  favHeadsUp, leastFavHeadsUp} = req.body
-  const newPlayer = {firstName, surName, knickName, favHand,  favHeadsUp, leastFavHeadsUp}
-  db.addPlayer(newPlayer)
-    .then((player) => {res.json(player[0])})
-    .catch(err => res.status(500))
-})
-
 module.exports = router
