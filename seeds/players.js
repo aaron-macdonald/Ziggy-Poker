@@ -5,9 +5,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('Players').insert([
-        {id: 100, firstName: 'Aaron', surName: 'Macdonald', knickName: 'Azza', favHand:'6 7 suited',favHeadsUp: 'Wiremu', leastFavHeadsUp: 'Lucky Troy' },
-        {id: 101, firstName: 'Leanne', surName: 'Macdonald', knickName: 'Weeanne', favHand:'AA',favHeadsUp: 'Azza', leastFavHeadsUp: 'Ziggy' },
-        {id: 102, firstName: 'Caleb', surName: 'Macdonald', knickName: 'Skin & Bones', favHand:'QQ',favHeadsUp: 'Kev', leastFavHeadsUp: 'Lucky Troy' },
+        {id: 100, firstName: 'Aaron', surName: 'Macdonald', knickName: 'Azza', favHand:'6 7 suited',favHeadsUp: 'Wiremu', leastFavHeadsUp: 'Lucky Troy', image:'/images/aaron_001.jpg' },
+        {id: 101, firstName: 'Bayley', surName: 'Legget', knickName: 'Weeanne', favHand:'AA',favHeadsUp: 'Ashley', leastFavHeadsUp: 'Nick', image:'/images/bayley_001.jpg' },
+        {id: 102, firstName: 'Nick', surName: 'Evans', knickName: 'Nig', favHand:'QQ',favHeadsUp: 'Kev', leastFavHeadsUp: 'Andrew', image:'/images/nick_001.jpg' },
       ]);
     });
 };

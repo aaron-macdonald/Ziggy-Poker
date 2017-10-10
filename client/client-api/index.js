@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 export function getPlayers () {
-  return request.get('/v1/players')
+  return request.get('/api/v1')
     .then(data => {
       const players = data.body
       return players.map(player => {

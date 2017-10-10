@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.string('favHand')
     table.string('favHeadsUp')
     table.string('leastFavHeadsUp')
+    table.string('image')
   })
 }
 
