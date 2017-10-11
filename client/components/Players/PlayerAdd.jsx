@@ -34,13 +34,13 @@ class PlayerAdd extends React.Component {
     this.setState({ errorMessage: null })
       addPlayer(this.state)
         .then((id) => {this.props.fetchPlayers()
-          .then(() => this.props.history.push(`/player/${id}`))
+          .then(() => this.props.history.push(`/players/player/${id}`))
           })
         .catch(err => this.setState({ errorMessage: err.message }))
   }
   render () {
     return (
-      <form className='editPlayer' onSubmit={this.handleSubmit}>
+      <form className='addPlayer' onSubmit={this.handleSubmit}>
         <h2 className=''>Add Player</h2>
         <fieldset>
           <div className=''>
