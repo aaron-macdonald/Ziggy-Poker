@@ -7,7 +7,7 @@ function Players (props) {
     <div className='players'>
       <div className='row valign-wrapper'>
         <h4 className="col s12">Players</h4>
-          <Link to='/player/add'>
+          <Link to='/players/player/add'>
             <div className="waves-effect waves-light btn">
               Add Player
             </div>
@@ -28,7 +28,7 @@ function Players (props) {
               <td><h5>{firstName} {surName}</h5></td>
               <td><img src={image} alt="" height="100" width="100"></img></td>
               <td>
-                <Link to={`/player/${id}`}>
+                <Link to={`/players/player/${id}`}>
                   <div className="waves-effect waves-light btn">
                     View
                   </div>

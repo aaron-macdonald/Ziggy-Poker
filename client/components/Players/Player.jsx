@@ -42,7 +42,7 @@ function Player (props) {
               </table>
             </div>
             <div className="card-action">
-              <Link to={`/player/${id}/edit/`}>
+              <Link to={`/players/player/${id}/edit/`}>
                 <div className="center">
                   <div className="waves-effect waves-light btn">Edit Player Details</div>
               </div>

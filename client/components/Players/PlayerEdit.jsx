@@ -35,7 +35,7 @@ class PlayerEdit extends React.Component {
     const {player} = this.props
       updatePlayer(this.state)
         .then(() => {this.props.fetchPlayers()
-          .then(() => this.props.history.push(`/player/${player.id}`))
+          .then(() => this.props.history.push(`/players/player/${player.id}`))
           })
         .catch(err => this.setState({ errorMessage: err.message }))
   }
