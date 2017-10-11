@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Players from './Players/Players'
 import Player from './Players/Player'
+import PlayerEdit from './Players/PlayerEdit'
 import { getPlayers } from '../client-api'
 
 class Layout extends React.Component {
@@ -30,11 +31,11 @@ class Layout extends React.Component {
   }
   render () {
     return (
-      <div className="app">
+      <div className="layout">
         <div className="header">
           <Header />
         </div>
-        <div className="app-routes container">
+        <div className="layout-routes container">
           <Switch>
             <Route
               exact
@@ -54,9 +55,22 @@ class Layout extends React.Component {
                }
             />
             <Route
+              exact
               path='/player/:id'
               render={(props) =>
                 <Player
+                  player={this.state.players.find((player) =>
+                    player.id === Number(props.match.params.id))
+                  }
+                  fetchPlayers={this.fetchPlayers}
+                  {...props}
+                />
+              }
+            />
+            <Route
+              path='/player/:id/edit'
+              render={(props) =>
+                <PlayerEdit
                   player={this.state.players.find((player) =>
                     player.id === Number(props.match.params.id))
                   }
