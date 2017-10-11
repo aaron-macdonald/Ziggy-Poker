@@ -1,7 +1,7 @@
 import request from 'superagent'
 
-export function getPlayers (props) {
-  return request.get('/api/v1')
+export function getPlayers () {
+  return request.get('/api/v1/players')
     .then(data => {
       const players = data.body
       return players.map(player => {
@@ -13,5 +13,17 @@ export function getPlayers (props) {
     })
     .catch(err => {
       throw Error('Cannot GET Players!')
+    })
+}
+
+export function updatePlayer (player) {
+  const{id} = player
+  return request.put(`/api/v1/player/${id}/edit`)
+    .send(player)
+    .then(result => {
+      return result.body
+    })
+    .catch(err => {
+      throw Error('Cannot PUT a Post!')
     })
 }
