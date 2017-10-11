@@ -12,6 +12,13 @@ router.get('/players', (req, res) => {
     .catch(err => res.status(500).end)
 })
 
+router.post('/player/add', (req, res) => {
+  let player = req.body
+  db.addPlayer(player)
+  .then(result => res.json(result))
+  .catch(err => res.status(500).end)
+})
+
 router.put('/player/:id/edit', (req, res) => {
   let {id} = req.body
   db.editPlayer( id, req.body)

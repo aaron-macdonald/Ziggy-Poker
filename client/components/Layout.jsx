@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Players from './Players/Players'
 import Player from './Players/Player'
 import PlayerEdit from './Players/PlayerEdit'
+import PlayerAdd from './Players/PlayerAdd'
 import { getPlayers } from '../client-api'
 
 class Layout extends React.Component {
@@ -53,6 +54,16 @@ class Layout extends React.Component {
                    {...props}
                  />
                }
+            />
+            <Route
+              exact
+              path='/player/add'
+              render={(props) =>
+                <PlayerAdd
+                  fetchPlayers={this.fetchPlayers}
+                  {...props}
+                />
+              }
             />
             <Route
               exact

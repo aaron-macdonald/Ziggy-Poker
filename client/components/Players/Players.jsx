@@ -7,7 +7,7 @@ function Players (props) {
     <div className='players'>
       <div className='row valign-wrapper'>
         <h4 className="col s11">Players</h4>
-          <Link to='/players/new'>
+          <Link to='/player/add'>
             <div className="waves-effect waves-light btn">
               Add Player
             </div>

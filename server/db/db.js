@@ -7,6 +7,19 @@ function getPlayers() {
     .select()
 }
 
+function addPlayer(e) {
+  return knex('players')
+    .insert({
+      firstName: e.firstName,
+      surName: e.surName,
+      knickName: e.knickName,
+      favHand: e.favHand,
+      favHeadsUp: e.favHeadsUp,
+      leastFavHeadsUp: e.leastFavHeadsUp,
+      image: e.image
+    })
+}
+
 function editPlayer(id, e) {
   return knex('Players')
     .where('id', id)
@@ -23,5 +36,6 @@ function editPlayer(id, e) {
 
 module.exports = {
   getPlayers,
+  addPlayer,
   editPlayer
 }

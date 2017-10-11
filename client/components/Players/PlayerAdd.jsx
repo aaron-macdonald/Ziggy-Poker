@@ -1,7 +1,7 @@
 import React from 'react'
-import { updatePlayer } from '../../client-api'
+import { addPlayer } from '../../client-api'
 
-class PlayerEdit extends React.Component {
+class PlayerAdd extends React.Component {
 
   constructor (props) {
     super(props)
@@ -32,17 +32,16 @@ class PlayerEdit extends React.Component {
   handleSubmit (e) {
     e.preventDefault()
     this.setState({ errorMessage: null })
-    const {player} = this.props
-      updatePlayer(this.state)
-        .then(() => {this.props.fetchPlayers()
-          .then(() => this.props.history.push(`/player/${player.id}`))
+      addPlayer(this.state)
+        .then((id) => {this.props.fetchPlayers()
+          .then(() => this.props.history.push(`/player/${id}`))
           })
         .catch(err => this.setState({ errorMessage: err.message }))
   }
   render () {
     return (
       <form className='editPlayer' onSubmit={this.handleSubmit}>
-        <h2 className=''>Edit Player</h2>
+        <h2 className=''>Add Player</h2>
         <fieldset>
           <div className=''>
            <label htmlFor='firstName'>First name</label>
@@ -120,4 +119,4 @@ class PlayerEdit extends React.Component {
   }
 }
 
-export default PlayerEdit
+export default PlayerAdd
