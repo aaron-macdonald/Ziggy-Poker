@@ -39,22 +39,22 @@ class GameRoutes extends React.Component {
                 games={this.state.games}
                 fetchGames={this.fetchGames}
                 {...props}
-                />
+              />
             }
-            />
+          />
           <Route
             exact
             path='/games/game/:id'
-            render={ (props) =>
+            render={(props) =>
               <Game
                 game={this.state.games.find((game) =>
                   game.id === Number(props.match.params.id))
                 }
                 fetchGames={this.fetchGames}
                 {...props}
-                />
+              />
             }
-            />
+          />
         </Switch>
         {this.state.errorMessage &&
           <h1>{this.state.errorMessage}</h1>}

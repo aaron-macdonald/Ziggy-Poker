@@ -33,15 +33,15 @@ class PlayerRoutes extends React.Component {
       <div className="player-routes">
         <Switch>
           <Route
-             exact
-             path='/players'
-             render={ (props) =>
-               <Players
-                 players={this.state.players}
-                 fetchPlayers={this.fetchPlayers}
-                 {...props}
-               />
-             }
+            exact
+            path='/players'
+            render={ (props) =>
+             <Players
+               players={this.state.players}
+               fetchPlayers={this.fetchPlayers}
+               {...props}
+             />
+            }
           />
           <Route
             exact
@@ -66,6 +66,9 @@ class PlayerRoutes extends React.Component {
               />
             }
           />
+          <Route
+            exact
+            path='/players/player/:id/edit'
             render={(props) =>
               <PlayerEdit
                 player={this.state.players.find((player) =>
