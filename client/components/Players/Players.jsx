@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Players (props) {
   const players = props.players
+  
   return (
     <div className='players'>
       <div className='row valign-wrapper'>

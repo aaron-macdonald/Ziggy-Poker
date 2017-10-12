@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Games (props) {
   const games = props.games
+  console.log(games);
   return (
     <div className='games'>
       <div className='row valign-wrapper'>
@@ -28,7 +29,7 @@ function Games (props) {
               <td><h5>{date}</h5></td>
               <td><h5>{location}</h5></td>
                 <td>
-                  <Link to={`/players/player/${id}`}>
+                  <Link to={`/games/game/${id}`}>
                     <div className="waves-effect waves-light btn">
                       View Game
                     </div>

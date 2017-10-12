@@ -66,8 +66,6 @@ class PlayerRoutes extends React.Component {
               />
             }
           />
-          <Route
-            path='/players/player/:id/edit'
             render={(props) =>
               <PlayerEdit
                 player={this.state.players.find((player) =>
