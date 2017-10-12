@@ -30,7 +30,7 @@ function Players (props) {
               <td>
                 <Link to={`/players/player/${id}`}>
                   <div className="waves-effect waves-light btn">
-                    View
+                    View Player
                   </div>
                 </Link>
               </td>
