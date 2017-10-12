@@ -4,6 +4,7 @@ import Home from './Home'
 import Header from './Header'
 import Footer from './Footer'
 import PlayerRoutes from './Players/PlayerRoutes'
+import GameRoutes from './Games/GameRoutes'
 
 function Layout() {
   return (
@@ -23,8 +24,12 @@ function Layout() {
             path='/players'
             component={PlayerRoutes}
           />
+          <Route
+            path='/games'
+            component={GameRoutes}
+          />
         </Switch>
-      </div >
+      </div>
       <div className="footer center">
         <Footer />
       </div>

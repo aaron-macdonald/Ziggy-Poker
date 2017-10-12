@@ -9,6 +9,7 @@ function Header () {
           <Link to="/" className="brand-logo">Ziggys Poker</Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to="/players">Players</Link></li>
+            <li><Link to="/games">Games</Link></li>
           </ul>
         </div>
       </nav>

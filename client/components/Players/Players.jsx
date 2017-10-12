@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Players (props) {
   const players = props.players
+  
   return (
     <div className='players'>
       <div className='row valign-wrapper'>
@@ -30,7 +31,7 @@ function Players (props) {
               <td>
                 <Link to={`/players/player/${id}`}>
                   <div className="waves-effect waves-light btn">
-                    View
+                    View Player
                   </div>
                 </Link>
               </td>
