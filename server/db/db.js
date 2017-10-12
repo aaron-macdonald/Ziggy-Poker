@@ -6,6 +6,10 @@ function getPlayers() {
   return knex('Players')
     .select()
 }
+function getGames() {
+  return knex('Games')
+    .select()
+}
 
 function addPlayer(e) {
   return knex('players')
@@ -37,5 +41,6 @@ function editPlayer(id, e) {
 module.exports = {
   getPlayers,
   addPlayer,
-  editPlayer
+  editPlayer,
+  getGames
 }
