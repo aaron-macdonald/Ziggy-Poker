@@ -4,34 +4,34 @@ export function getPlayers () {
   return request.get('/api/v1/players/players')
     .then(result => {
       const players = result.body
-      return players.map(player => {
-        return Object.assign(
-          {},
-          player
-        )
-      })
+      return players
     })
     .catch(err => {
       throw Error('Cannot GET Players!')
     })
 }
-
 export function getGames() {
   return request.get('/api/v1/games/games')
-  .then(result => {
-    const games = result.body
-    return games.map(game => {
-      return Object.assign(
-        {},
-        game
-      )
+    .then(result => {
+      const games = result.body
+      return games
     })
-  })
     .catch(err => {
       throw Error('Cannot GET Games!')
     })
 }
-
+//====================================================
+export function getGameData(id) {
+  return request.get(`/api/v1/games/games/game/${id}`)
+    .send(id)
+    .then(result => {
+      return JSON.parse(result.text)
+    })
+    .catch(err => {
+      throw Error('Cannot POST a Post!')
+    })
+}
+//====================================================
 export function addPlayer (player) {
   return request.post('/api/v1/players/player/add')
     .send(player)
@@ -42,7 +42,6 @@ export function addPlayer (player) {
       throw Error('Cannot POST a Post!')
     })
 }
-
 export function updatePlayer (player) {
   const{id} = player
   return request.put(`/api/v1/players/player/${id}/edit`)

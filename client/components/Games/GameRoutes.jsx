@@ -1,27 +1,37 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
-
 import Games from './Games'
 import Game from './Game'
-
 import { getGames } from '../../client-api'
+import { getGameData } from '../../client-api'
 
 class GameRoutes extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       games: [],
+      gamedata: [],
       errorMessage: ''
     }
     this.fetchGames = this.fetchGames.bind(this)
+    this.fetchGameData = this.fetchGameData.bind(this)
   }
-  componentWillMount () {
+  componentWillMount() {
     this.fetchGames()
   }
-  fetchGames () {
+  fetchGames() {
     return getGames()
       .then(games => {
         this.setState({ games: games })
+      })
+      .catch(err => {
+        this.setState({ errorMessage: err.message })
+      })
+  }
+  fetchGameData(id) {
+    return getGameData(id)
+      .then(gamedata => {
+        this.setState({ gamedata: gamedata })
       })
       .catch(err => {
         this.setState({ errorMessage: err.message })
@@ -32,25 +42,24 @@ class GameRoutes extends React.Component {
       <div className="game-routes">
         <Switch>
           <Route
-            exact
-            path='/games'
-            render={ (props) =>
+            exact path='/games' render={(props) =>
               <Games
                 games={this.state.games}
                 fetchGames={this.fetchGames}
+                fetchGameData= {this.fetchGameData}
                 {...props}
               />
             }
           />
           <Route
-            exact
-            path='/games/game/:id'
-            render={(props) =>
+            exact path='/games/game/:id' render={(props) =>
               <Game
-                game={this.state.games.find((game) =>
-                  game.id === Number(props.match.params.id))
-                }
-                fetchGames={this.fetchGames}
+                game={this.state.games.find(game =>
+                  game.id === Number(props.match.params.id)
+                )}
+                gamedata={this.state.gamedata}
+                fetchGames= {this.fetchGames}
+                fetchGameData= {this.fetchGameData}
                 {...props}
               />
             }
