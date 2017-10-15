@@ -42,25 +42,27 @@ class GameRoutes extends React.Component {
       <div className="game-routes">
         <Switch>
           <Route
-            exact path='/games' render={(props) =>
+            exact
+            path='/games'
+            render={ props =>
               <Games
                 games={this.state.games}
                 fetchGames={this.fetchGames}
                 fetchGameData= {this.fetchGameData}
-                {...props}
+                  {...props}
               />
             }
           />
           <Route
-            exact path='/games/game/:id' render={(props) =>
+            exact
+            path='/games/game/:id'
+            render={ props =>
               <Game
-                game={this.state.games.find(game =>
-                  game.id === Number(props.match.params.id)
-                )}
+                game={this.state.games.find( game =>
+                  game.id === Number(props.match.params.id))}
                 gamedata={this.state.gamedata}
-                fetchGames= {this.fetchGames}
                 fetchGameData= {this.fetchGameData}
-                {...props}
+                  {...props}
               />
             }
           />

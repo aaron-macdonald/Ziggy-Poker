@@ -2,17 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Game (props) {
-  const{id, date, location} = props.game
-  const{gamedata} = props.gamedata
-
-  console.log(props)
-
+  const { id, date, location } = props.game
+  const { gamedata, fetchGameData } = props
   return (
     <div className="row">
       <div className="col s12 m10 offset-m1">
         <div className="card">
           <div className="card-action">
-            <Link to={`/games/game/${id}/edit/`}>
+            <Link to= {`/games/game/${id}/edit/`}>
               <div className="center">
                 <div className="waves-effect waves-light btn">Edit Game Details</div>
               </div>
@@ -35,10 +32,9 @@ function Game (props) {
             </table>
           </div>
         </div>
-
-        {/* <div className="card">
+        <div className="card">
           <div className="card-action">
-            <table classname="stripped">
+            <table className="stripped">
               <thead>
                 <tr>
                   <th>thead1</th>
@@ -48,7 +44,7 @@ function Game (props) {
               <tbody>
                 {gamedata.map(pdata => {
                   const {player_id, position} = pdata
-                 return <tr key={id}>
+                  return <tr key={player_id}>
                   <td>{player_id}</td>
                   <td>{position}</td>
                 </tr>
@@ -56,7 +52,7 @@ function Game (props) {
               </tbody>
             </table>
           </div>
-        </div> */}
+        </div>
 
       </div>
     </div>
