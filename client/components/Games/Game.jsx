@@ -48,9 +48,10 @@ function Game (props) {
               </thead>
               <tbody>
                 {gamedata.map(pdata => {
-                  const {player_id, buyin, rebuys, addons, position, prizemoney} = pdata
+                  console.log(pdata);
+                  const {id, player_id, buyin, rebuys, addons, position, prizemoney} = pdata
                   const profitLoss = prizemoney - buyin - rebuys - addons
-                  return <tr key={player_id}>
+                  return <tr key={id}>
                     <td>{player_id}</td>
                     <td>{buyin}</td>
                     <td>{rebuys}</td>
