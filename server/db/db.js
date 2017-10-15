@@ -2,22 +2,23 @@ const path = require('path')
 const config = require(path.join(__dirname, '/../../knexfile')).development
 const knex = require('knex')(config)
 
+//====================================================
 function getPlayers() {
   return knex('Players')
     .select()
 }
-
+//====================================================
 function getGames() {
   return knex('Games')
     .select()
 }
-
+//====================================================
 function getGameData(id) {
   return knex('Games')
     .join('Gamedata', 'Games.id', '=', 'Gamedata.game_id')
     .select()
 }
-
+//====================================================
 function addPlayer(e) {
   return knex('players')
     .insert({
@@ -30,7 +31,7 @@ function addPlayer(e) {
       image: e.image
     })
 }
-
+//====================================================
 function editPlayer(id, e) {
   return knex('Players')
     .where('id', id)
@@ -44,7 +45,7 @@ function editPlayer(id, e) {
       image: e.image
     })
 }
-
+//====================================================
 module.exports = {
   getPlayers,
   addPlayer,

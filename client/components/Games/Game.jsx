@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GameData from './GameData'
 
 function Game (props) {
   const { id, date, location } = props.game
-  const { gamedata, fetchGameData } = props
+  const { gamedata } = props
   return (
     <div className="row">
       <div className="col s12 m10 offset-m1">
@@ -19,53 +20,24 @@ function Game (props) {
             <table className="striped">
               <thead>
                 <tr>
+                  <th>Id</th>
                   <th>Date</th>
-                  <th>{date}</th>
+                  <th>Location</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Location</td>
+                  <td>{id}</td>
+                  <td>{date}</td>
                   <td>{location}</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div className="card">
-          <div className="card-action">
-            <table className="stripped">
-              <thead>
-                <tr>
-                  <th>Player ID</th>
-                  <th>Buyin</th>
-                  <th>Rebuy</th>
-                  <th>Addon</th>
-                  <th>Position</th>
-                  <th>Prizemoney</th>
-                  <th>Profit/Loss</th>
-                </tr>
-              </thead>
-              <tbody>
-                {gamedata.map(pdata => {
-                  console.log(pdata);
-                  const {id, player_id, buyin, rebuys, addons, position, prizemoney} = pdata
-                  const profitLoss = prizemoney - buyin - rebuys - addons
-                  return <tr key={id}>
-                    <td>{player_id}</td>
-                    <td>{buyin}</td>
-                    <td>{rebuys}</td>
-                    <td>{addons}</td>
-                    <td>{position}</td>
-                    <td>{prizemoney}</td>
-                    <td>{profitLoss}</td>
-                  </tr>
-                })}
-              </tbody>
-            </table>
-          </div>
+        <div>
+          <GameData gamedata={gamedata} />
         </div>
-
       </div>
     </div>
   )

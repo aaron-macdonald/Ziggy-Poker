@@ -10,6 +10,7 @@ export function getPlayers () {
       throw Error('Cannot GET Players!')
     })
 }
+//====================================================
 export function getGames() {
   return request.get('/api/v1/games/games')
     .then(result => {
@@ -42,6 +43,7 @@ export function addPlayer (player) {
       throw Error('Cannot POST a Post!')
     })
 }
+//====================================================
 export function updatePlayer (player) {
   const{id} = player
   return request.put(`/api/v1/players/player/${id}/edit`)
