@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Games (props) {
-  const { games, gamedata, fetchGames, fetchGameData } = props
+  const { games, fetchGameData } = props
+
   return (
     <div className='games'>
       <div className='row valign-wrapper'>
@@ -16,7 +17,7 @@ function Games (props) {
       <table className="striped centered">
         <thead>
           <tr>
-            <th><h5>Id</h5></th>
+            <th><h5>Game Id</h5></th>
             <th><h5>Date</h5></th>
             <th><h5>Location</h5></th>
             <th></th>
@@ -25,13 +26,13 @@ function Games (props) {
         <tbody>
           {games.map(game => {
             const {id, date, location} = game
-            return <tr key={id} className='game'>
+            return <tr key={id}>
               <td><h5>{id}</h5></td>
               <td><h5>{date}</h5></td>
               <td><h5>{location}</h5></td>
                 <td>
-                  <Link to={`/games/game/${id}`}>
-                    <div className="waves-effect waves-light btn" onClick={id => fetchGameData(id)}>
+                  <Link to={`/games/game/${id}`} onClick={ id => fetchGameData(id) }>
+                    <div className="waves-effect waves-light btn">
                       View Game
                     </div>
                   </Link>
@@ -42,9 +43,5 @@ function Games (props) {
       </table>
     </div>
   )
-}
-Games.defaultProps = {
-  date: '',
-  location: ''
 }
 export default Games
