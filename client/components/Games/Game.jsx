@@ -37,18 +37,29 @@ function Game (props) {
             <table className="stripped">
               <thead>
                 <tr>
-                  <th>thead1</th>
-                  <th>thead2</th>
+                  <th>Player ID</th>
+                  <th>Buyin</th>
+                  <th>Rebuy</th>
+                  <th>Addon</th>
+                  <th>Position</th>
+                  <th>Prizemoney</th>
+                  <th>Profit/Loss</th>
                 </tr>
               </thead>
               <tbody>
                 {gamedata.map(pdata => {
-                  const {player_id, position} = pdata
+                  const {player_id, buyin, rebuys, addons, position, prizemoney} = pdata
+                  const profitLoss = prizemoney - buyin - rebuys - addons
                   return <tr key={player_id}>
-                  <td>{player_id}</td>
-                  <td>{position}</td>
-                </tr>
-              })}
+                    <td>{player_id}</td>
+                    <td>{buyin}</td>
+                    <td>{rebuys}</td>
+                    <td>{addons}</td>
+                    <td>{position}</td>
+                    <td>{prizemoney}</td>
+                    <td>{profitLoss}</td>
+                  </tr>
+                })}
               </tbody>
             </table>
           </div>
