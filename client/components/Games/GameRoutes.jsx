@@ -37,7 +37,7 @@ class GameRoutes extends React.Component {
         this.setState({ errorMessage: err.message })
       })
   }
-  render () {
+  render() {
     return (
       <div className="game-routes">
         <Switch>
@@ -47,8 +47,6 @@ class GameRoutes extends React.Component {
             render={ props =>
               <Games
                 games={this.state.games}
-                fetchGames={this.fetchGames}
-                fetchGameData= {this.fetchGameData}
                   {...props}
               />
             }
@@ -58,10 +56,11 @@ class GameRoutes extends React.Component {
             path='/games/game/:id'
             render={ props =>
               <Game
-                game={this.state.games.find( game =>
+                game={this.state.games.find(game =>
                   game.id === Number(props.match.params.id))}
-                gamedata={this.state.gamedata}
-                fetchGameData= {this.fetchGameData}
+                fetchGameData={this.fetchGameData}
+                gamedata={this.state.gamedata.filter(gdata =>
+                  gdata.game_id === Number(props.match.params.id)) }
                   {...props}
               />
             }

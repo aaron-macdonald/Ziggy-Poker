@@ -11,7 +11,7 @@ router.get('/games', (req, res) => {
   })
   .catch(err => res.status(500).end)
 })
-
+//====================================================
 router.get('/games/game/:id', (req, res) => {
   let {id} = req.body
   db.getGameData(id)
@@ -19,5 +19,5 @@ router.get('/games/game/:id', (req, res) => {
   })
   .catch(err => res.status(500).end)
 })
-
+//====================================================
 module.exports = router
