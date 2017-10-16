@@ -59,7 +59,8 @@ class GameRoutes extends React.Component {
                 game={this.state.games.find(game =>
                   game.id === Number(props.match.params.id))}
                 fetchGameData={this.fetchGameData}
-                gamedata={this.state.gamedata}
+                gamedata={this.state.gamedata.filter(gdata =>
+                  gdata.game_id === Number(props.match.params.id)) }
                   {...props}
               />
             }
