@@ -37,7 +37,7 @@ class GameRoutes extends React.Component {
         this.setState({ errorMessage: err.message })
       })
   }
-  render () {
+  render() {
     return (
       <div className="game-routes">
         <Switch>
@@ -59,6 +59,7 @@ class GameRoutes extends React.Component {
                 game={this.state.games.find(game =>
                   game.id === Number(props.match.params.id))}
                 fetchGameData={this.fetchGameData}
+                gamedata={this.state.gamedata}
                   {...props}
               />
             }
