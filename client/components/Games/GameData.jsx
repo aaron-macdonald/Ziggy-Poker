@@ -2,7 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function GameData (props) {
-  const { gamedata } = props
+
+  const { fetchGameData, id } = props
+
+  fetchGameData(id)
+
   return (
     <div className="card">
       <div className="card-action">

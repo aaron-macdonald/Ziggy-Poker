@@ -4,7 +4,6 @@ import GameData from './GameData'
 
 function Game (props) {
   const { id, date, location } = props.game
-  const { gamedata } = props
   return (
     <div className="row">
       <div className="col s12 m10 offset-m1">
@@ -36,7 +35,7 @@ function Game (props) {
           </div>
         </div>
         <div>
-          <GameData gamedata={gamedata} />
+          <GameData id ={id} fetchGameData={props.fetchGameData} />
         </div>
       </div>
     </div>

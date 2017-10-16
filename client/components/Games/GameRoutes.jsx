@@ -47,8 +47,6 @@ class GameRoutes extends React.Component {
             render={ props =>
               <Games
                 games={this.state.games}
-                fetchGames={this.fetchGames}
-                fetchGameData= {this.fetchGameData}
                   {...props}
               />
             }
@@ -58,10 +56,9 @@ class GameRoutes extends React.Component {
             path='/games/game/:id'
             render={ props =>
               <Game
-                game={this.state.games.find( game =>
+                game={this.state.games.find(game =>
                   game.id === Number(props.match.params.id))}
-                gamedata={this.state.gamedata}
-                fetchGameData= {this.fetchGameData}
+                fetchGameData={this.fetchGameData}
                   {...props}
               />
             }
