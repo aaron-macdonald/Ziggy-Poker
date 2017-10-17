@@ -7,16 +7,14 @@ const db = require('../db/db')
 
 router.get('/games', (req, res) => {
   db.getGames()
-  .then(result => {res.json(result)
-  })
+  .then(result => {res.json(result)})
   .catch(err => res.status(500).end)
 })
 //====================================================
 router.get('/games/game/:id', (req, res) => {
   let {id} = req.body
   db.getGameData(id)
-  .then(result => {res.json(result)
-  })
+  .then(result => {res.json(result)})
   .catch(err => res.status(500).end)
 })
 //====================================================
