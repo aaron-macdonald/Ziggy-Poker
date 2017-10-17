@@ -13,11 +13,9 @@ class Game extends React.Component {
         <div className="col s12 m10 offset-m1">
           <div className="card">
             <div className="card-action">
-              <Link to= {`/games/game/${id}/edit/`}>
-                <div className="center">
-                  <h5 className="">Game Detail</h5>
-                </div>
-              </Link>
+              <div className="center">
+                <h5 className="">Game Detail</h5>
+              </div>
             </div>
             <div className="card-content">
               <table className="striped">

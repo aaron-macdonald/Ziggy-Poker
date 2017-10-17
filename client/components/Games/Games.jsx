@@ -7,11 +7,6 @@ function Games (props) {
     <div className='games'>
       <div className='row valign-wrapper'>
         <h4 className='col s12'>Games</h4>
-          <Link to='#'>
-            <div className="waves-effect waves-light btn">
-              Add Game
-            </div>
-          </Link>
       </div>
       <table className="striped centered">
         <thead>
