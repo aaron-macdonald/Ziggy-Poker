@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('Gamedata', function(table) {
-    table.increments().primary('id')
+    table.increments().primary()
     table.integer('game_id')
     table.integer('player_id')
     table.integer('buyin')

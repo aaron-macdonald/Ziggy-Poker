@@ -8,14 +8,14 @@ class GameData extends React.Component {
     this.props.fetchGameData(this.props.id)
   }
   render () {
+    console.log(this.props.gamedata)
     return (
       <div className="card">
         <div className="card-action">
           <table className="stripped">
             <thead>
               <tr>
-                <th>Game_Id</th>
-                <th>Player ID</th>
+                <th>Knickname</th>
                 <th>Buyin</th>
                 <th>Rebuy</th>
                 <th>Addon</th>
@@ -26,11 +26,10 @@ class GameData extends React.Component {
             </thead>
             <tbody>
               {this.props.gamedata.map(pdata => {
-                const {id, game_id, player_id, buyin, rebuys, addons, position, prizemoney} = pdata
+                const {id, game_id, player_id, buyin, rebuys, addons, position, prizemoney, knickName} = pdata
                 const profitLoss = (prizemoney - buyin - rebuys - addons)
                 return <tr key={id}>
-                  <td>{game_id}</td>
-                  <td>{player_id}</td>
+                  <td>{knickName}</td>
                   <td>{buyin}</td>
                   <td>{rebuys}</td>
                   <td>{addons}</td>

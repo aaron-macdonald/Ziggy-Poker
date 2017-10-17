@@ -41,20 +41,13 @@ class GameRoutes extends React.Component {
     return (
       <div className="game-routes">
         <Switch>
-          <Route
-            exact
-            path='/games'
-            render={ props =>
+          <Route exact path='/games' render={ props =>
               <Games
                 games={this.state.games}
                   {...props}
               />
-            }
-          />
-          <Route
-            exact
-            path='/games/game/:id'
-            render={ props =>
+            }/>
+          <Route exact path='/games/game/:id' render={ props =>
               <Game
                 game={this.state.games.find(game =>
                   game.id === Number(props.match.params.id))}
@@ -63,8 +56,7 @@ class GameRoutes extends React.Component {
                   gdata.game_id === Number(props.match.params.id)) }
                   {...props}
               />
-            }
-          />
+            }/>
         </Switch>
         {this.state.errorMessage &&
           <h1>{this.state.errorMessage}</h1>}
