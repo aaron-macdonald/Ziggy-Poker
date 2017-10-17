@@ -1,5 +1,5 @@
 import request from 'superagent'
-
+//====================================================
 export function getPlayers () {
   return request.get('/api/v1/players/players')
     .then(result => {
@@ -20,6 +20,17 @@ export function getGames() {
     .catch(err => {
       throw Error('Cannot GET Games!')
     })
+}
+//====================================================
+export function getPlayerData(id) {
+  return request.get(`/api/v1/players/players/player/${id}`)
+  .send(id)
+  .then(result => {
+    return JSON.parse(result.text)
+  })
+  .catch(err => {
+    throw Error('Cannot get Player Data')
+  })
 }
 //====================================================
 export function getGameData(id) {

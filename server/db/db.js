@@ -13,6 +13,12 @@ function getGames() {
     .select()
 }
 //====================================================
+function getPlayerData(id) {
+  return knex ('Players')
+  .join('Gamedata', 'Players.id', '=', 'Gamedata.player_id')
+  .join('Games', 'Games.id', '=', 'Gamedata.game_id')
+}
+//====================================================
 function getGameData(id) {
   return knex('Games')
     .join('Gamedata', 'Games.id', '=', 'Gamedata.game_id')
@@ -48,8 +54,9 @@ function editPlayer(id, e) {
 //====================================================
 module.exports = {
   getPlayers,
-  addPlayer,
-  editPlayer,
   getGames,
-  getGameData
+  getPlayerData,
+  getGameData,
+  addPlayer,
+  editPlayer
 }

@@ -15,7 +15,7 @@ class Game extends React.Component {
             <div className="card-action">
               <Link to= {`/games/game/${id}/edit/`}>
                 <div className="center">
-                  <div className="waves-effect waves-light btn">Edit Game Details</div>
+                  <h5 className="">Game Detail</h5>
                 </div>
               </Link>
             </div>
@@ -40,8 +40,7 @@ class Game extends React.Component {
           </div>
           <div>
             <GameData id ={id} fetchGameData={this.props.fetchGameData}
-            gamedata={this.props.gamedata}
-             />
+            gamedata={this.props.gamedata}/>
           </div>
         </div>
       </div>

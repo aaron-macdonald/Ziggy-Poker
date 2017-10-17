@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class GameData extends React.Component {
+class PlayerData extends React.Component {
   componentWillMount() {
-    this.props.fetchGameData(this.props.id)
+    this.props.fetchPlayerData(this.props.id)
   }
   render () {
     return (
@@ -12,7 +12,8 @@ class GameData extends React.Component {
           <table className="stripped">
             <thead>
               <tr>
-                <th>Knickname</th>
+                <th>Game Id</th>
+                <th>Date</th>
                 <th>Buyin</th>
                 <th>Rebuy</th>
                 <th>Addon</th>
@@ -22,11 +23,12 @@ class GameData extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.gamedata.map(pdata => {
-                const {id, game_id, player_id, buyin, rebuys, addons, position, prizemoney, knickName} = pdata
+              {this.props.playerdata.map(gdata => {
+                const {id, date, game_id, buyin, rebuys, addons, position, prizemoney} = gdata
                 const profitLoss = (prizemoney - buyin - rebuys - addons)
                 return <tr key={id}>
-                  <td>{knickName}</td>
+                  <td>{game_id}</td>
+                  <td>{date}</td>
                   <td>{buyin}</td>
                   <td>{rebuys}</td>
                   <td>{addons}</td>
@@ -42,4 +44,4 @@ class GameData extends React.Component {
     )
   }
 }
-export default GameData
+export default PlayerData
