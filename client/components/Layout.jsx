@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 import PlayerRoutes from './Players/PlayerRoutes'
 import GameRoutes from './Games/GameRoutes'
+import TableRoutes from './Table/TableRoutes'
 
 function Layout() {
   return (
@@ -27,6 +28,10 @@ function Layout() {
           <Route
             path='/games'
             component={GameRoutes}
+          />
+          <Route
+            path='/table'
+            component={TableRoutes}
           />
         </Switch>
       </div>

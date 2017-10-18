@@ -10,6 +10,7 @@ function Header () {
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to="/players">Players</Link></li>
             <li><Link to="/games">Games</Link></li>
+            <li><Link to="/table">Table</Link></li>
           </ul>
         </div>
       </nav>
