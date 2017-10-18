@@ -26,8 +26,7 @@ function getPlayerData(id) {
 }
 //====================================================
 function getGameData(id) {
-  return knex('Games')
-    .join('Gamedata', 'Games.id', '=', 'Gamedata.game_id')
+  return knex('Gamedata')
     .join('Players', 'Players.id', '=', 'Gamedata.player_id')
 }
 //====================================================
@@ -61,7 +60,7 @@ function editPlayer(id, e) {
 module.exports = {
   getPlayers,
   getGames,
-  getTable, 
+  getTable,
   getPlayerData,
   getGameData,
   addPlayer,
