@@ -51,7 +51,6 @@ class TableRoutes extends React.Component {
 
     console.log(playerResultArray);
 
-
     return (
       <div className="table-routes">
         <Switch>

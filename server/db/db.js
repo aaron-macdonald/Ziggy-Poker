@@ -17,6 +17,7 @@ function getTable() {
   return knex('Games')
     .join('Gamedata', 'Games.id', '=', 'Gamedata.game_id')
     .join('Players', 'Players.id', '=', 'Gamedata.player_id')
+    .select('player_id', 'knickName', 'position', 'buyin', 'rebuys', 'addons', 'prizemoney' )
 }
 //====================================================
 function getPlayerData(id) {
