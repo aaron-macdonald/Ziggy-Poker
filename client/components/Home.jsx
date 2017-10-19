@@ -4,10 +4,10 @@ function Home (props) {
   return (
     <div className="home">
       <div>
-        <h4 className="center">Playing Texas Hold-em Poker in Azza's Garrage</h4>
+        <h4 className="center"></h4>
       </div>
       <div className="center">
-        <img src="/images/cards_001.jpg" alt="table with playing cards on it" height="300" width="500"></img>
+        <img src="/images/game_002.jpg" alt="table with playing cards on it" height="700" width="1000"></img>
       </div>
     </div>
   )

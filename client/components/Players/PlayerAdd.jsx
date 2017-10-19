@@ -103,7 +103,7 @@ class PlayerAdd extends React.Component {
              type='text'
              name='image'
              value={this.state.image}
-             onChange={(e) => this.setState({ leastFavHeads: e.target.value })}
+             onChange={(e) => this.setState({ image: e.target.value })}
            />
           </div>
           <div className=''>
