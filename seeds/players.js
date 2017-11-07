@@ -18,6 +18,8 @@ exports.seed = function(knex, Promise) {
         {id: 110, firstName: 'Felix', surName: 'Sarr', knickName: 'Asian', favHand:'',favHeadsUp: '', leastFavHeadsUp: '', image:'/images/felix_001.jpg' },
         {id: 111, firstName: 'Michael', surName: 'Stickney', knickName: 'Mickey', favHand:'',favHeadsUp: '', leastFavHeadsUp: '', image:'/images/michael_001.jpg' },
         {id: 112, firstName: 'Tim', surName: 'Wynne-Jones', knickName: 'Timuk', favHand:'',favHeadsUp: '', leastFavHeadsUp: '', image:'' },
-      ]);
-    });
-};
+        {id: 113, firstName: 'Ian', surName: 'Zaks Mate', knickName: 'Ianzy', favHand:'',favHeadsUp: '', leastFavHeadsUp: '', image:'' },
+        {id: 114, firstName: 'Butch', surName: 'Evans', knickName: 'Butch', favHand:'',favHeadsUp: '', leastFavHeadsUp: '', image:'' },
+      ])
+    })
+}
